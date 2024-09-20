@@ -10,11 +10,18 @@ function outer() {
 	return incrementCounter;
 }
 
+function sendMessage() {
+    myNewFunction()
+    
+    if(counter === 2) {
+        return "Counter is 2"
+    }
+}
 
 // console.log(outer);
 
 const myNewFunction = outer();
-// myNewFunction();
-console.log(myNewFunction());
+myNewFunction();
 
+sendMessage()
 console.log(myNewFunction());
