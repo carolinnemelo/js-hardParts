@@ -187,9 +187,9 @@ function saveOutput(func, magicWord) {
     return function (x) {
         if (x === magicWord) {
             return obj;
-        }
-        if (magicWord !== undefined) {
-            return (obj[`${x}`] = func(x));
+        } else {
+            obj[x] = func(x);
+            return obj[x];
         }
 	};
   }
