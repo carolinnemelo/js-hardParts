@@ -184,19 +184,14 @@ const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
 // CHALLENGE 8
 function saveOutput(func, magicWord) {
     const obj = {}
-      return function (x) {
-      
-      if (x === "boo"){
-              return obj;
-      }
-          if(magicWord !== undefined) {
-        const keyName = x;
-        const key = func(x);  
-              obj[`${keyName}`] = key;
-        return key;
-      }
-    
-    }
+    return function (x) {
+        if (x === magicWord) {
+            return obj;
+        }
+        if (magicWord !== undefined) {
+            return (obj[`${x}`] = func(x));
+        }
+	};
   }
   
   /*** Uncomment these to check your work! ***/
