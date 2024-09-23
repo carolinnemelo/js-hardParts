@@ -52,10 +52,10 @@ function createFunction() {
   }
   
   /*** Uncomment these to check your work! ***/
-  const printSample = createFunctionPrinter('sample');
-  printSample(); // => should console.log('sample');
-  const printHello = createFunctionPrinter('hello');
-  printHello(); // => should console.log('hello');
+//   const printSample = createFunctionPrinter('sample');
+//   printSample(); // => should console.log('sample');
+//   const printHello = createFunctionPrinter('hello');
+//   printHello(); // => should console.log('hello');
   
   
   // CHALLENGE 3
@@ -75,55 +75,55 @@ function createFunction() {
   // Before your do, guess what will be logged from each function call.
   
   /*** Uncomment these to check your work! ***/
-  willCounter(); //counter1
-  willCounter(); //counter2
-  willCounter(); //counter3
+//   willCounter(); //counter1
+//   willCounter(); //counter2
+//   willCounter(); //counter3
   
-  jasCounter(); //counter1
-  willCounter(); //counter4
+//   jasCounter(); //counter1
+//   willCounter(); //counter4
   
   
-  function addByX(x) {
-    function addInputByX(input) {
-  
-      console.log(x + input)
-      return x + input;
-  
-      
-      
-    }
-      return addInputByX
-  }
+function addByX(x) {
+	let value;
+
+	function addInputByX(input) {
+		if (value !== undefined) {
+			return value;
+		} else {
+			value = x + input;
+			return value;
+		}
+		// console.log(x + input)
+	}
+	return addInputByX;
+}
   
   // /*** Uncomment these to check your work! ***/
   const addByTwo = addByX(2);
-  addByTwo(1); // => should return 3
-  addByTwo(2); // => should return 4
-  addByTwo(3); // => should return 5
+//   addByTwo(1); // => should return 3
+//   addByTwo(2); // => should return 4
+//   addByTwo(3); // => should return 5
   
-  const addByThree = addByX(3);
-  addByThree(1); // => should return 4
-  addByThree(2); // => should return 5
+//   const addByThree = addByX(3);
+//   addByThree(1); // => should return 4
+//   addByThree(2); // => should return 5
   
-  const addByFour = addByX(4);
-  addByFour(4); // => should return 8
-  addByFour(5); // => should return 9
+//   const addByFour = addByX(4);
+//   addByFour(4); // => should return 8
+//   addByFour(5); // => should return 9
   
   
   // CHALLENGE 4
   function once(func) {
-      function returnFunc() {
-      return func();
-    }
-    
-    return returnFunc;
+
+      return func;
   }
   
   // /*** Uncomment these to check your work! ***/
-  // const onceFunc = once(addByTwo);
-  // console.log(onceFunc(4));  // => should log 6
-  // console.log(onceFunc(10));  // => should log 6
-  // console.log(onceFunc(9001));  // => should log 6
+  const onceFunc = once(addByTwo);
+  console.log(onceFunc(4));  // => should log 6
+  console.log(onceFunc(10));  // => should log 6
+  console.log(onceFunc(9001));  // => should log 6
   
   
   // CHALLENGE 5
