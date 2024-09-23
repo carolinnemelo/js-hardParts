@@ -146,19 +146,15 @@ function after(count, func) {
 
 
 // CHALLENGE 6
-function delay(func, wait) {
-    function caller (...x) {
-      setTimeout(() => {
-        console.log(func(...x))
-      }, wait) 
-    }
-    
-      return caller;
-  }
-  
-  const sayHello = delay((name)=> {return `Hello ${name}`}, 3000);
-  
-  sayHello(['Carolinne', 'anna']);
+function delay(func, wait, ...x) {
+	setTimeout(() => {
+		func(...x);
+	}, wait);
+}
+
+const cb = function(...params){ console.log("called!", ...params) };
+delay(cb, 1000); // "called!" printed after 1000 ms
+delay(cb, 2000, "param1", "param2"); // "called! param1 param2" printed after 2000 ms
 
 
 // CHALLENGE 7
