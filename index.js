@@ -153,14 +153,33 @@ function delay(func, wait, ...x) {
 }
 
 const cb = function(...params){ console.log("called!", ...params) };
-delay(cb, 1000); // "called!" printed after 1000 ms
-delay(cb, 2000, "param1", "param2"); // "called! param1 param2" printed after 2000 ms
+// delay(cb, 1000); // "called!" printed after 1000 ms
+// delay(cb, 2000, "param1", "param2"); // "called! param1 param2" printed after 2000 ms
 
 
 // CHALLENGE 7
 function rollCall(names) {
+    let counter = 0;
 
+    return function () {
+        if (counter < names.length) {
+            console.log(names[counter]);
+            counter++;
+        }
+        else {
+            console.log("Everyone accounted for");
+        }
+    };
+  
 }
+
+/*** Uncomment these to check your work! ***/
+const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
+rollCaller() // => should log 'Victoria'
+rollCaller() // => should log 'Juan'
+rollCaller() // => should log 'Ruth'
+rollCaller() // => should log 'Everyone accounted for'
+
 
 // /*** Uncomment these to check your work! ***/
 // const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
