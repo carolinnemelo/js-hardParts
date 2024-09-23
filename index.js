@@ -137,18 +137,28 @@ function after(count, func) {
 }
 
 
-// /*** Uncomment these to check your work! ***/
-const called = function() { console.log('hello') };
-const afterCalled = after(3, called);
-afterCalled(); // => nothing is printed
-afterCalled(); // => nothing is printed
-afterCalled(); // => 'hello' is printed
+// // /*** Uncomment these to check your work! ***/
+// const called = function() { console.log('hello') };
+// const afterCalled = after(3, called);
+// afterCalled(); // => nothing is printed
+// afterCalled(); // => nothing is printed
+// afterCalled(); // => 'hello' is printed
 
 
 // CHALLENGE 6
 function delay(func, wait) {
-
-}
+    function caller (...x) {
+      setTimeout(() => {
+        console.log(func(...x))
+      }, wait) 
+    }
+    
+      return caller;
+  }
+  
+  const sayHello = delay((name)=> {return `Hello ${name}`}, 3000);
+  
+  sayHello(['Carolinne', 'anna']);
 
 
 // CHALLENGE 7
