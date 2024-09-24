@@ -215,10 +215,10 @@ return function () {
 /*** Uncomment these to check your work! ***/
 const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
 const getDay = cycleIterator(threeDayWeekend);
-console.log(getDay()); // => should log 'Fri'
-console.log(getDay()); // => should log 'Sat'
-console.log(getDay()); // => should log 'Sun'
-console.log(getDay()); // => should log 'Fri'
+// console.log(getDay()); // => should log 'Fri'
+// console.log(getDay()); // => should log 'Sat'
+// console.log(getDay()); // => should log 'Sun'
+// console.log(getDay()); // => should log 'Fri'
 
 
 // CHALLENGE 10
@@ -231,20 +231,29 @@ function defineFirstArg(func, arg) {
 }
 
 // /*** Uncomment these to check your work! ***/
-// const subtract = function(big, small) { return big - small; };
-// const subFrom20 = defineFirstArg(subtract, 20);
+const subtract = function (big, small) {
+	return big - small;
+};
+const subFrom20 = defineFirstArg(subtract, 20);
 // console.log(subFrom20(5)); // => should log 15
 
 
 // CHALLENGE 11
 function dateStamp(func) {
+    function createObj(...params) {
+        return {
+            date: new Date(),
+            output: func(...params),
+        };
+	}
+    return createObj;
 
 }
 
-// /*** Uncomment these to check your work! ***/
-// const stampedMultBy2 = dateStamp(n => n * 2);
-// console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
-// console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
+/*** Uncomment these to check your work! ***/
+const stampedMultBy2 = dateStamp(n => n * 2);
+console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
+console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
 
 
 // CHALLENGE 12
