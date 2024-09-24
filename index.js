@@ -223,7 +223,11 @@ console.log(getDay()); // => should log 'Fri'
 
 // CHALLENGE 10
 function defineFirstArg(func, arg) {
-
+    let firstArg = arg;
+    function newFunction(...x) {
+      return func(firstArg, ...x);
+    }
+      return newFunction;
 }
 
 // /*** Uncomment these to check your work! ***/
